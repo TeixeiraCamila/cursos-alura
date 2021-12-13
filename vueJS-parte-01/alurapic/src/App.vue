@@ -1,27 +1,48 @@
 <template>
   <div id="app">
-    <alurapic />
+    
+    <section class="photos-container">
+      <h1 class="page-title"> 
+        {{ pageTitle }} 
+      </h1>
+      <card :photos="photos"/>
+    </section>
+
   </div>
 </template>
 
 <script>
-import alurapic from '@/components/alurapic.vue';
 
 export default {
   name: 'App',
   components: {
-    alurapic
+    card: () => import('@/components/card.vue'),
+  },
+  data(){
+    return{
+      pageTitle: 'Alurapic',
+      photos: []
+    }
+  },
+  created(){
+    this.$http.get('http://localhost:3000/v1/fotos')
+      .then(res => res.json())
+      .then(photos => this.photos = photos);
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Nunito', sans-serif;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: var(--mainText);
+  margin-top: 30px;
+}
+
+h1.page-title {
+  font-size: 40px;
+  font-weight: 900;
+  padding-bottom: 20px;
 }
 </style>
