@@ -1,48 +1,50 @@
 <template>
-  <div id="app">
-    
-    <section class="photos-container">
-      <h1 class="page-title"> 
-        {{ pageTitle }} 
-      </h1>
-      <card :photos="photos"/>
-    </section>
+  <div class="corpo">
 
+    <meu-menu :rotas="routes"/>
+
+    <transition name="pagina">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
 
+import { routes } from './routes';
+import Menu from './components/shared/menu/Menu.vue';
+
 export default {
-  name: 'App',
+
   components: {
-    card: () => import('@/components/card.vue'),
+    'meu-menu' : Menu
   },
-  data(){
-    return{
-      pageTitle: 'Alurapic',
-      photos: []
+  
+  data() {
+
+    return {
+
+      routes : routes.filter(route => route.menu)
     }
-  },
-  created(){
-    this.$http.get('http://localhost:3000/v1/fotos')
-      .then(res => res.json())
-      .then(photos => this.photos = photos);
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Nunito', sans-serif;
-  text-align: center;
-  color: var(--mainText);
-  margin-top: 30px;
-}
+  .corpo {
+    font-family: Helvetica, sans-serif;
+    width: 96%;
+    margin: 0 auto;
+  }
 
-h1.page-title {
-  font-size: 40px;
-  font-weight: 900;
-  padding-bottom: 20px;
-}
+ .pagina-enter, .pagina-leave-active {
+
+     opacity: 0;
+ }
+
+ .pagina-enter-active, .pagina-leave-active {
+
+     transition: opacity .4s;
+ }
+
 </style>
