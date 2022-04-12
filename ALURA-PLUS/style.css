@@ -1,0 +1,159 @@
+/************************/
+/*  VARIAVEIS PUBLICAS */
+/**********************/
+:root {
+  --principalWhite: #FFFFFF;
+  --secondaryGray: #C0C0C0;
+  --button: #167BF7;
+  --background: #00030C;
+  --fontPrincipal: 'Inter';
+  --efect: #3c92fa;
+}
+/***********************/
+/*        RESETS      */
+/*********************/
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--background);
+  color: var(--principalWhite);
+  font-family: var(--fontPrincipal);
+  font-size: 16px;
+  font-weight: 400;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/***********************************/
+/*        ESTILOS 1ºCONTAINER     */
+/*********************************/
+.principal {
+  background-image: url("./imgs/Background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  align-items: center;
+}
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 3em;
+}
+.container-box {
+  margin: 0 6em;
+}
+h1.container-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+a.container-btn {
+  background-color: var(--button);
+  border-radius: 5px;
+  padding: 1em;
+  color: var(--principalWhite);
+  display: block;
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+a.container-btn:hover {
+  opacity: .7;
+  background-color: var(--efect);
+  color: var(--background);
+  border-color: var(--efect);
+}
+a.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--principalWhite);
+}
+.container-aviso {
+  font-size: 12px;
+  color: var(--secondaryGray);
+}
+img.container-img {
+  margin: 1em 0 2em 0;
+}
+
+/************************************/
+/*        ESTILOS 2ºCONTAINER      */
+/**********************************/
+.secondary-img {
+  width: 100%;
+}
+.container.secondary {
+  align-items: center;
+  margin: 0 6em;
+}
+h2.desc-title {
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: .2em;
+}
+p.desc-text {
+  color: var(--secondaryGray);
+}
+/************************************/
+/*        ESTILOS 3ºCONTAINER      */
+/**********************************/
+a.secondary-btn {
+  display: inline-block;
+  margin-top: 1em;
+}
+.container-desc {
+  padding: 2em;
+}
+/************************************/
+/*        ESTILOS 3ºCONTAINER      */
+/**********************************/
+.dispositivos {
+  text-align: center;
+  color: var(--principalWhite);
+}
+ul.dispositivos-lista {
+  display: flex;
+  justify-content: center;
+  margin: 5em 0;
+  transition: all .2s ease-in-out
+}
+.dispositivos-lista li:hover {
+  transform: scale(1.1)
+}
+h2.dispositivos-title {
+  font-size: 48px;
+}
+h3.lista-item {
+  font-size: 32px;
+}
+/************************************/
+/*          ESTILOS RODAPÉ         */
+/**********************************/
+.rodape {
+  text-align: center;
+  margin: 5em 3em;
+}
+.rodape-lista {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+.lista-link {
+  font-size: 16px;
+  margin: 0 16px;
+}
+.lista-link a:hover {
+  opacity: .5;
+  color: var(--efect);
+}
+.lista-link a:active {
+  color: var(--secondaryGray);
+}
+.rodape-texto {
+  font-size: 14px;
+  color: var(--secondaryGray);
+  margin: 1em 0;
+}
